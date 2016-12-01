@@ -1,0 +1,33 @@
+{% extends 'employee_base.html' %}
+
+{% block content %}
+    {% load extras %}
+    <div class="employee-app">
+        <div class='employee-detail-section'>
+            <div class='vertical-menu  col-sm-2'>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="{% active_url request 'employee-profile' %}" parent_id="employee_profile" ><a href=
+                                                                                        "{% url 'employee-profile' %}"><span
+                            class='glyphicon glyphicon-user'></span> Account
+                        Information</a></li>
+                    <li class="{% active_url request 'employee-allowance-deduction-list' %}" parent_id="employee_profile"><a href=
+                                                                                                 "{% url 'employee-allowance-deduction-list' %}"><span class='glyphicon
+                    glyphicon-list'></span> Pay, Allowances & Deductions</a></li>
+                    <li class="{% active_url request 'employee-salary-list' %}" parent_id="employee_profile"> <a href=
+                                                                                     "{% url 'employee-salary-list' %}"><span class='glyphicon glyphicon-list'></span>
+                        Salary Sheets</a></li>
+                    <li class="{% active_url request 'employee-gpf-monthly-logs' %}" parent_id="employee_profile"> <a href=
+                                                                                          "{% url 'employee-gpf-monthly-logs' %}"><span class='glyphicon
+                    glyphicon-list'></span> GPF Subscriptions</a></li>
+                    <li class="{% active_url request 'employee-gpf-advance-list' %}" parent_id="employee_profile"><a href=
+                                                                                         "{% url 'employee-gpf-advance-list' %}"><span class='glyphicon
+                    glyphicon-list'></span> GPF Advances</a></li>
+                </ul>
+            </div>
+            <div class="employee-detail-content col-sm-10">
+                {% block employee_detail_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
